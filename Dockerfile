@@ -19,10 +19,10 @@ RUN curl -sSL https://install.python-poetry.org | python3 - && \
     ln -s /root/.local/bin/poetry /usr/local/bin/poetry
 
 # Copy dependency files first
-COPY pyproject.toml poetry.lock* /app/
+COPY ./* /app/
 
-# Install dependencies
-RUN poetry install --no-root
+RUN pip install -r requirements.txt
+
 
 # Copy full app
 COPY . /app/
@@ -31,4 +31,4 @@ COPY . /app/
 EXPOSE 8000
 
 # Run the bot via uvicorn
-CMD ["poetry", "run", "uvicorn", "bot.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["poetry", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
