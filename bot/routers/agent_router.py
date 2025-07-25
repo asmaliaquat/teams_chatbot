@@ -1,5 +1,3 @@
-# router.py
-
 from fastapi import APIRouter, HTTPException
 from loguru import logger
 from bot.utils.schema import ChatRequest, ChatResponse

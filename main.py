@@ -3,6 +3,8 @@ from fastapi import FastAPI, BackgroundTasks
 from bot.routers.agent_router import router as chat_router
 from fastapi.middleware.cors import CORSMiddleware
 from bot.services.reminder_service import scheduler
+from dotenv import load_dotenv
+load_dotenv()
 
 app = FastAPI()
 
