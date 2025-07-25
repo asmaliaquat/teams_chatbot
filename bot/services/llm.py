@@ -17,6 +17,12 @@ def get_llm():
         llm = ChatMistralAI(
             model="mistral-small-2503", api_key=mistral_api_key)
         
+# Initialize LLM (you can parameterize model name, temperature later)
+mistral_api_key  = os.getenv("MISTRAL_API_KEY")
+def get_llm():
+    llm = ChatMistralAI(
+        model="mistral-small-2503", api_key=mistral_api_key)
+    # llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
     return llm
 
 def get_chain(prompt, parser=None, setup=None):

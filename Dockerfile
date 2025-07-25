@@ -9,6 +9,7 @@ ENV MISTRAL_API_KEY=
 ENV OPENAI_API_KEY=
 ENV MICROSOFT_APP_ID=
 ENV MICROSOFT_APP_PASSWORD=
+
 # Set working directory
 WORKDIR /app
 
@@ -25,15 +26,8 @@ COPY . /app/
 
 RUN pip install -r requirements.txt
 
-
-# Copy full app
-COPY . /app/
-
-
-
 # Expose app port
 EXPOSE 8000
 
 # Run the bot via uvicorn
 CMD ["poetry", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
-
